@@ -10,7 +10,7 @@ fall victim to [Catastrophic Backtracking](https://www.regular-expressions.info/
 Rust's [`regex`](https://docs.rs/regex/) crate, by contrast, is specifically designed to
 [safely handle untrusted input](https://docs.rs/regex/#untrusted-input) without blowing up.
 
-So let's use WebAssembly to bring this same safe handling of untrusted regexes to JavaScript,
+So let's use WebAssembly to bring this same safe handling of untrusted regexes from Rust to JavaScript,
 with the addition of extra sandboxing!
 
 
@@ -39,5 +39,8 @@ console.log(SlowRE.test("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC"));
 
 ## Building it
 
-Use [`wasm-pack`](https://rustwasm.github.io/docs/wasm-pack/tutorials/npm-browser-packages/index.html).
+You'll need [`wasm-pack`](https://rustwasm.github.io/docs/wasm-pack/tutorials/npm-browser-packages/index.html).
 
+Build the package using `make build`.
+
+## Using it

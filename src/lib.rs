@@ -3,20 +3,17 @@ extern crate wasm_bindgen;
 use wasm_bindgen::prelude::*;
 use regex::Regex;
 
+use once_cell::sync::OnceCell;
+
+static REGEXP: OnceCell<Regex> = OnceCell::new();
+
 #[wasm_bindgen]
-pub struct SandboxedRegExp {
-  re: Regex,
+pub fn init(pattern: &str) {
+  REGEXP.set(Regex::new(pattern).unwrap()).unwrap();
 }
 
 #[wasm_bindgen]
-impl SandboxedRegExp {
-  pub fn new(pattern: &str) -> Self {
-    Self {
-      re: Regex::new(pattern).unwrap(),
-    }
-  }
-
-  pub fn test(&self, haystack: &str) -> bool {
-    self.re.is_match(haystack)
-  }
+pub fn test(haystack: &str) -> bool {
+  let re = REGEXP.get().expect("REGEXP is not initialized");
+  re.is_match(haystack)
 }
