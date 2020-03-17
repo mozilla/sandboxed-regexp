@@ -6,3 +6,8 @@ pkg/sandboxed-regexp.js: src/lib.rs src/sandboxed-regexp.js Cargo.toml
 	wasm-pack build --target nodejs --release --out-name="sandboxed-regexp" --no-typescript
 	# We have our own custom JS wrapper, overwiting the generated one.
 	cp src/sandboxed-regexp.js pkg/sandboxed-regexp.js
+
+bench: build
+	npm install safe-regex
+	npm install sadbox
+	node bench.js

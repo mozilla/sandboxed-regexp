@@ -40,7 +40,7 @@ async function timeit(func, regex, emailAddresses) {
 }
 
 EMAILS = []
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 200; i++) {
     EMAILS.push("test" + i + "@example.com");
 }
 
