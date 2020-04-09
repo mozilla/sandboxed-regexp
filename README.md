@@ -66,7 +66,7 @@ always remain:
   to be very different around the edges.
     * In particular, this means no support for look-ahead or backreferences,
       which are popular non-regular enhancements to reglar expression syntax
-      that are resistance to safe execution of untrusted inputs.
+      that are resistant to safe execution of untrusted inputs.
 * Thorough unicode handling is on by default. This is most likely to show
   up in practice as character classes like `\w` matching unicode character
   classes rather than ASCII.
@@ -75,8 +75,8 @@ It has the following non-functional differences that might matter to you
 at scale:
 
 * You have to slurp in a few hundred kilobytes of wasm code.
-* Executing a `SandboxedRegExp` is cheap, but creating one is likely to be much
-  more expensive than creating a builtin `RegExp`. If you're creating
+* Testing against a `SandboxedRegExp` is cheap, but creating one is likely to
+  be much more expensive than creating a builtin `RegExp`. If you're creating
   `SandboxedRegExp` instances in a loop, you're likely to have a bad time.
 * Each `SandboxedRegExp` instance consumes more memory than a builtin `RegExp`
   instance. *Significantly* more. We might expose some knobs for tuning the

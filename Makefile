@@ -17,4 +17,7 @@ bench: build
 	node ./tools/bench.js
 
 clean:
-	rm -rf pkg
+	rm -rf ./pkg
+
+publish:
+	cd ./pkg && npm publish
