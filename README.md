@@ -19,6 +19,7 @@ with the addition of extra sandboxing!
 You'll need [`wasm-pack`](https://rustwasm.github.io/docs/wasm-pack/tutorials/npm-browser-packages/index.html).
 
 Build the package using `make build`. Test that it works using `make test`.
+Publish the resulting bundle under `./pkg` like a regular nodejs library.
 
 
 ## Using it
